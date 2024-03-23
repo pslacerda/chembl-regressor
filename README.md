@@ -52,7 +52,7 @@ $ chembl-regressor train \
 ```
 
 ```bash
-chembl-regressor predict \
+$ chembl-regressor predict \
     --output-scores OXTR-fda.csv \
     ~/my_path/fda.smi
 ```
