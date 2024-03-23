@@ -1,6 +1,8 @@
 ChEMBL Regressor
 ================
 
+A program for biological activity prediction trained with ChEMBL assays.
+
 Install
 -------
 
@@ -10,9 +12,6 @@ $ pip install chembl-regressor
 
 Usage
 -----
-
-A program for biological activity prediction trained with ChEMBL assays.
-
 ```
 $ chembl-regressor train --help  
 Usage: chembl-regressor train [OPTIONS] CHEMBL_INPUT
