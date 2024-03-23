@@ -1,6 +1,13 @@
 ChEMBL Regressor
 ================
 
+Install
+=======
+
+```bash
+$ pip install chembl-regressor
+```
+
 Usage
 -----
 
