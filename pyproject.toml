@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "chembl_regressor"
+version = "0.0.1"
+authors = [
+  { name="Pedro Sousa Lacerda", email="pslacerda@gmail.com" },
+]
+description = "A ChEMBL biological activity regression model"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+  "molfeat",
+  "click",
+  "scikit-learn",
+  "numpy",
+  "joblib",
+  "scipy",
+  "lightgbm",
+  "seaborn",
+  "matplotlib"
+]
+[project.scripts]
+chembl-regressor = "chembl_regressor:cli"
+
+[tool.setuptools.packages]
+find = {}
+
+[project.urls]
+Homepage = "https://github.com/pslacerda/chembl-regressor"
+Issues = "https://github.com/pslacerda/chembl-regressor/issues"
