@@ -158,6 +158,7 @@ def train(
         y_pred = best_model.predict(X_test_scaled)  # again
 
         fig, (ax1, ax2) = plt.subplots(ncols=2, nrows=1)
+        fig.suptitle(f'Best regressor ({best_model.__class__.__name__})')
 
         sb.residplot(x=y_test, y=y_pred, color="g", ax=ax1)
         ax1.set(label="Residuals", ylabel="Residuals", xlabel="Predicted Value")
