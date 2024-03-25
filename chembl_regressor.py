@@ -56,6 +56,11 @@ def cli():
     default=False,
     help="may be useful for standartize the target variable",
 )
+@click.option(
+    "--scramble/--no-scramble",
+    default=False,
+    help="shuffle the input data before splitting",
+)
 @click.option("--plot/--no-plot", default=True, help="display plots")
 @click.option(
     "--output-model",
@@ -74,6 +79,7 @@ def train(
     sample_fraction,
     log10,
     plot,
+    scramble,
     output_model,
     chembl_input,
 ):
@@ -88,6 +94,8 @@ def train(
 
     y = data[target_var]
     y = y.rename("y")
+    if scramble:
+        y = y.sample(frac=1, random_state=random_seed)
 
     if log10:
         y = np.log10(y)
@@ -150,9 +158,9 @@ def train(
         click.secho(f"corr={corr[0]:.2f}, p={corr[1]:.2f}", fg="green", bold=True)
 
         models[label] = (best_model, corr[0])
-
-    best_model = sorted(models.values(), key=lambda m: m[1], reverse=True)[0][0]
-    joblib.dump((scaler, best_model), output_model)
+    if not scramble;
+        best_model = sorted(models.values(), key=lambda m: m[1], reverse=True)[0][0]
+        joblib.dump((scaler, best_model), output_model)
 
     if plot:
         y_pred = best_model.predict(X_test_scaled)  # again
